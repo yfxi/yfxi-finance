@@ -1,6 +1,6 @@
 import config from "../config";
 import async from 'async';
-import * as moment from 'moment';
+// import * as moment from 'moment';
 import {
   ERROR,
   CONFIGURE,
@@ -42,20 +42,20 @@ import Web3 from 'web3';
 
 import {
   injected,
-  walletconnect,
-  walletlink,
-  ledger,
-  trezor,
-  frame,
-  fortmatic,
-  portis,
-  squarelink,
-  torus,
-  authereum
+  // walletconnect,
+  // walletlink,
+  // ledger,
+  // trezor,
+  // frame,
+  // fortmatic,
+  // portis,
+  // squarelink,
+  // torus,
+  // authereum
 } from "./connectors";
 
 const rp = require('request-promise');
-const ethers = require('ethers');
+// const ethers = require('ethers');
 
 const Dispatcher = require('flux').Dispatcher;
 const Emitter = require('events').EventEmitter;
@@ -144,9 +144,9 @@ class Store {
         // },
         {
           id: 'OKB',
-          name: 'yearn.finance',
-          website: 'curve.fi/y',
-          link: 'https://curve.fi/y',
+          name: 'OKB Pool',
+          website: 'okex.me',
+          link: 'https://www.okex.me',
           YieldCalculatorLink: "http://47.112.190.20:3003/yfxi/ycrv/",   //收益率器地址
           depositsEnabled: true,
           isVote: false,
@@ -155,12 +155,11 @@ class Store {
               id: 'OKB',
               address: '0x75231f58b43240c9718dd58b4967c5114342a86c',
               symbol: 'OKB',
-              abi: config.okbABI,
+              abi: config.erc20ABI,
               decimals: 18,
-              rewardsAddress: config.yCurveFiRewardsAddress,
-              rewardsABI: config.yCurveFiRewardsABI,
+              rewardsAddress: config.okbRewardsAddress,
+              rewardsABI: config.okbRewardsABI,
               rewardsSymbol: 'YFXI',
-              decimals: 18,
               balance: 0,
               stakedBalance: 0,
               rewardsAvailable: 0,
@@ -169,9 +168,9 @@ class Store {
         },
         {
           id: 'HT',
-          name: 'Balancer Pool',
-          website: 'pools.balancer.exchange',
-          link: 'https://bal.yfii.finance/#/pool/0x16cAC1403377978644e78769Daa49d8f6B6CF565',
+          name: 'HT Pool',
+          website: 'huobi.me',
+          link: 'https://www.huobi.me',
           YieldCalculatorLink: "http://47.112.190.20:3003/yfxi/yfxi_dai/", //收益率器地址
           depositsEnabled: true,
           isVote: false,
@@ -180,12 +179,11 @@ class Store {
               id: 'HT',
               address: '0x6f259637dcd74c767781e37bc6133cd6a68aa161',
               symbol: 'HT',
-              abi: config.htABI,
+              abi: config.erc20ABI,
               decimals: 18,
-              rewardsAddress: config.balancerRewardsAddress,
-              rewardsABI: config.balancerRewardsABI,
+              rewardsAddress: config.htRewardsAddress,
+              rewardsABI: config.htRewardsABI,
               rewardsSymbol: 'YFXI',
-              decimals: 18,
               balance: 0,
               stakedBalance: 0,
               rewardsAvailable: 0,
@@ -310,7 +308,6 @@ class Store {
 
   setStore(obj) {
     this.store = {...this.store, ...obj}
-    // console.log(this.store)
     return emitter.emit('StoreUpdated');
   };
 
@@ -564,8 +561,6 @@ class Store {
   _checkIfApprovalIsNeeded = async (asset, account, amount, contract, callback, overwriteAddress) => {
     const web3 = new Web3(store.getStore('web3context').library.provider);
     let erc20Contract = new web3.eth.Contract(config.erc20ABI, (overwriteAddress ? overwriteAddress : asset.address))
-    console.log('...............')
-    console.log(erc20Contract)
     const allowance = await erc20Contract.methods.allowance(account.address, contract).call({ from: account.address })
 
     const ethAllowance = web3.utils.fromWei(allowance, "ether")
@@ -642,7 +637,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_BALANCES, content: {} })
         }
       })
@@ -747,7 +742,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_BALANCES, content: {} })
         }
       })
@@ -797,7 +792,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_BALANCES, content: {} })
         }
       })
@@ -846,7 +841,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_BALANCES, content: {} })
         }
       })
@@ -883,7 +878,7 @@ class Store {
 
       let arr = Array.from(Array(parseInt(proposalCount)).keys())
 
-      if(proposalCount == 0) {
+      if(proposalCount === 0) {
         arr = []
       }
 
@@ -962,7 +957,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_VOTE_STATUS, content: {} })
         }
       })
@@ -1012,7 +1007,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_PROPOSALS, content: {} })
         }
       })
@@ -1062,7 +1057,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_PROPOSALS, content: {} })
         }
       })
@@ -1170,7 +1165,7 @@ class Store {
       })
       .on('confirmation', function(confirmationNumber, receipt){
         console.log(confirmationNumber, receipt);
-        if(confirmationNumber == 2) {
+        if(confirmationNumber === 2) {
           dispatcher.dispatch({ type: GET_CLAIMABLE_ASSET, content: {} })
         }
       })

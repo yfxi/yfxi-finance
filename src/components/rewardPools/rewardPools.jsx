@@ -252,7 +252,7 @@ class RewardPools extends Component {
   }
 
   renderRewardPool = (rewardPool) => {
-    console.log(rewardPool)
+    // console.log(rewardPool)
     const { classes, t } = this.props
 
     let tokensList = rewardPool.tokens.map((rp) => { return rp.symbol }).join(', ')

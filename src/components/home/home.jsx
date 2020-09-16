@@ -7,10 +7,10 @@ import {
 } from '@material-ui/core';
 import { withNamespaces } from 'react-i18next';
 import { colors } from '../../theme'
-import Link from '@material-ui/core/Link';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+// import Link from '@material-ui/core/Link';
+// import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import HowToVoteIcon from '@material-ui/icons/HowToVote';
-import WbIncandescentIcon from '@material-ui/icons/WbIncandescent';
+// import WbIncandescentIcon from '@material-ui/icons/WbIncandescent';
 import DetailsIcon from '@material-ui/icons/Details';
 
 const styles = theme => ({
@@ -183,7 +183,8 @@ class Home extends Component {
   }
 
   render() {
-    const { classes, t, location } = this.props;
+    // const { classes, t, location } = this.props;
+    const { classes, location } = this.props;
 
     return (
       <div className={ classes.root }>

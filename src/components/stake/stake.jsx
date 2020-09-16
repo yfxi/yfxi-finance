@@ -1,17 +1,18 @@
-import React, { Component, useState } from "react";
+// import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import {
   Typography,
   Button,
-  Card,
+  // Card,
   TextField,
   InputAdornment
 } from '@material-ui/core';
-import Link from '@material-ui/core/Link';
+// import Link from '@material-ui/core/Link';
 import Popover from '@material-ui/core/Popover';
 
-import moment from 'moment';
+// import moment from 'moment';
 
 import { withNamespaces } from 'react-i18next';
 
@@ -27,7 +28,7 @@ import './stake.scss'
 
 import {
   ERROR,
-  CONFIGURE_RETURNED,
+  // CONFIGURE_RETURNED,
   STAKE,
   STAKE_RETURNED,
   WITHDRAW,
@@ -378,17 +379,19 @@ class Stake extends Component {
   };
 
   render() {
-    const { classes, t, i18n } = this.props;
+    // const { classes, t, i18n } = this.props;
+    const { classes, t } = this.props;
     const {
       value,
       account,
-      modalOpen,
+      // modalOpen,
       pool,
       loading,
       snackbarMessage,
       voteLockValid,
       balanceValid,
-      day, hours, minutes, seconds,showStake,showUnStake
+      day, hours, minutes, seconds,
+      // showStake,showUnStake
     } = this.state
 
     var address = null;
@@ -449,7 +452,7 @@ class Stake extends Component {
             </div>}
             <div className={classes.overviewField}>
               <Typography variant={'h3'} className={classes.overviewTitle}>{t('Stake.RewardsAvailable')}</Typography>
-              <Typography variant={'h2'} className={classes.overviewValue}>{pool.tokens[0].rewardsSymbol == '$' ? pool.tokens[0].rewardsSymbol : ''} {pool.tokens[0].rewardsAvailable ? pool.tokens[0].rewardsAvailable.toFixed(2) : "0"} {pool.tokens[0].rewardsSymbol != '$' ? pool.tokens[0].rewardsSymbol : ''}</Typography>
+              <Typography variant={'h2'} className={classes.overviewValue}>{pool.tokens[0].rewardsSymbol == '$' ? pool.tokens[0].rewardsSymbol : ''} {pool.tokens[0].rewardsAvailable ? pool.tokens[0].rewardsAvailable.toFixed(2) : "0"} {pool.tokens[0].rewardsSymbol !== '$' ? pool.tokens[0].rewardsSymbol : ''}</Typography>
             </div>
           </div>
           {pool.id === 'Fee Rewards' &&
@@ -541,7 +544,7 @@ class Stake extends Component {
             color="primary"
             disabled={loading}
             // onClick={ () => { this.navigateInternal('unstake') } }
-            onClick={(pool.id === 'Governance V2' && voteLock != 0 && voteLockValid) ? this.handleClick : this.navigateInternal.bind(this, 'unstake')}
+            onClick={(pool.id === 'Governance V2' && voteLock !== 0 && voteLockValid) ? this.handleClick : this.navigateInternal.bind(this, 'unstake')}
           >
             <Typography className={classes.buttonText} variant={'h4'}>{t('Stake.UnstakeTokens')}</Typography>
           </Button>
@@ -572,7 +575,7 @@ class Stake extends Component {
               horizontal: 'left',
             }}
           >
-            <Typography className={classes.buttonText} variant={'h4'}>{voteLock != 0 && voteLockValid ? `${t('Stake.ComeSoon2')} ${voteLock}` : `${t('Stake.ComeSoon')}`}</Typography>
+            <Typography className={classes.buttonText} variant={'h4'}>{voteLock !== 0 && voteLockValid ? `${t('Stake.ComeSoon2')} ${voteLock}` : `${t('Stake.ComeSoon')}`}</Typography>
           </Popover>
         </div>
       </div>
@@ -722,7 +725,7 @@ class Stake extends Component {
       loading
     } = this.state
 
-    const amount = this.state[asset.id + '_' + type]
+    // const amount = this.state[asset.id + '_' + type]
     const amountError = this.state[asset.id + '_' + type + '_error']
 
     return (

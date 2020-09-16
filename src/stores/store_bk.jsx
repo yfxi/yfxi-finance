@@ -605,7 +605,7 @@ class Store {
     const yCurveFiContract = new web3.eth.Contract(asset.rewardsABI, asset.rewardsAddress)
 
     var amountToSend = web3.utils.toWei(amount, "ether")
-    if (asset.decimals != 18) {
+    if (asset.decimals !== 18) {
       amountToSend = (amount*10**asset.decimals).toFixed(0);
     }
 
@@ -660,7 +660,7 @@ class Store {
     const yCurveFiContract = new web3.eth.Contract(asset.rewardsABI, asset.rewardsAddress)
 
     var amountToSend = web3.utils.toWei(amount, "ether")
-    if (asset.decimals != 18) {
+    if (asset.decimals !== 18) {
       amountToSend = (amount*10**asset.decimals).toFixed(0);
     }
 
@@ -1133,7 +1133,7 @@ class Store {
     const claimContract = new web3.eth.Contract(config.claimABI, config.claimAddress)
 
     var amountToSend = web3.utils.toWei(amount, "ether")
-    if (asset.decimals != 18) {
+    if (asset.decimals !== 18) {
       amountToSend = (amount*10**asset.decimals).toFixed(0);
     }
 

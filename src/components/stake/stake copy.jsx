@@ -447,7 +447,7 @@ class Stake extends Component {
             </div>}
             <div className={classes.overviewField}>
               <Typography variant={'h3'} className={classes.overviewTitle}>{t('Stake.RewardsAvailable')}</Typography>
-              <Typography variant={'h2'} className={classes.overviewValue}>{pool.tokens[0].rewardsSymbol == '$' ? pool.tokens[0].rewardsSymbol : ''} {pool.tokens[0].rewardsAvailable ? pool.tokens[0].rewardsAvailable.toFixed(2) : "0"} {pool.tokens[0].rewardsSymbol != '$' ? pool.tokens[0].rewardsSymbol : ''}</Typography>
+              <Typography variant={'h2'} className={classes.overviewValue}>{pool.tokens[0].rewardsSymbol == '$' ? pool.tokens[0].rewardsSymbol : ''} {pool.tokens[0].rewardsAvailable ? pool.tokens[0].rewardsAvailable.toFixed(2) : "0"} {pool.tokens[0].rewardsSymbol !== '$' ? pool.tokens[0].rewardsSymbol : ''}</Typography>
             </div>
           </div>
           {pool.id === 'Fee Rewards' &&
@@ -538,7 +538,7 @@ class Stake extends Component {
             color="primary"
             disabled={loading}
             // onClick={ () => { this.navigateInternal('unstake') } }
-            onClick={(pool.id === 'Governance V2' && voteLock != 0 && voteLockValid) ? this.handleClick : this.navigateInternal.bind(this, 'unstake')}
+            onClick={(pool.id === 'Governance V2' && voteLock !== 0 && voteLockValid) ? this.handleClick : this.navigateInternal.bind(this, 'unstake')}
           >
             <Typography className={classes.buttonText} variant={'h4'}>{t('Stake.UnstakeTokens')}</Typography>
           </Button>
@@ -569,7 +569,7 @@ class Stake extends Component {
               horizontal: 'left',
             }}
           >
-            <Typography className={classes.buttonText} variant={'h4'}>{voteLock != 0 && voteLockValid ? `${t('Stake.ComeSoon2')} ${voteLock}` : `${t('Stake.ComeSoon')}`}</Typography>
+            <Typography className={classes.buttonText} variant={'h4'}>{voteLock !== 0 && voteLockValid ? `${t('Stake.ComeSoon2')} ${voteLock}` : `${t('Stake.ComeSoon')}`}</Typography>
           </Popover>
         </div>
       </div>

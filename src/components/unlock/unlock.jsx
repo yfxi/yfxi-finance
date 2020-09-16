@@ -110,27 +110,27 @@ class Unlock extends Component {
   };
 
   connectionConnected = () => {
-    if(this.props.closeModal != null) {
+    if(this.props.closeModal !== null) {
       this.props.closeModal()
     }
   }
 
   connectionDisconnected = () => {
-    if(this.props.closeModal != null) {
+    if(this.props.closeModal !== null) {
       this.props.closeModal()
     }
   }
 
   metamaskUnlocked = () => {
     this.setState({ metamaskLoading: false })
-    if(this.props.closeModal != null) {
+    if(this.props.closeModal !== null) {
       this.props.closeModal()
     }
   }
 
   ledgerUnlocked = () => {
     this.setState({ ledgerLoading: false })
-    if(this.props.closeModal != null) {
+    if(this.props.closeModal !== null) {
       this.props.closeModal()
     }
   }
