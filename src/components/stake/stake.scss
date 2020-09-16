@@ -1,0 +1,202 @@
+.pool-stake {
+    background: rgb(31, 31, 36);
+    width: 100%;
+    // display: block !important;
+    // font-family: "PingFang" !important;
+    // max-width: 1200px !important;
+    & > div {
+        & > div {
+            &:nth-of-type(2) {
+                padding: 0;
+                margin: 0;
+                border: none;
+                float: left;
+                background: transparent;
+                width: 400px;
+                display: block;
+
+                & > div {
+                    height: 125px;
+                    box-sizing: border-box;
+                    &:not(:last-of-type) {
+                        border-bottom: 1px solid rgb(51, 50, 63);
+                    }
+                    &:nth-of-type(3) {
+                        height: 230px;
+                    }
+
+                    h3 {
+                        height: 18px;
+                        line-height: 18px;
+                        font-size: 16px;
+                        color: white;
+                        margin-top: 28px;
+                    }
+                    h2 {
+                        font-size: 22px;
+                        height: 24px;
+                        line-height: 24px;
+                        color: rgb(48, 222, 171);
+                        margin-top: 20px;
+                    }
+                    .stake-half {
+                        display: flex;
+                        width: 400px;
+                        height: 120px;
+                        margin-top: 20px;
+                        box-sizing: border-box;
+                        border: 2px dashed rgb(39, 83, 74);
+                        position: relative;
+
+                        & > div {
+                            flex: 1;
+                            text-align: center;
+                            & > div:first-of-type {
+                                font-size: 25px;
+                                height: 25px;
+                                line-height: 25px;
+                                color: rgb(48, 222, 171);
+                                margin-top: 27px;
+                            }
+                            & > div:last-of-type {
+                                font-size: 15px;
+                                height: 15px;
+                                line-height: 15px;
+                                color: white;
+                                margin-top: 30px;
+                            }
+                        }
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 1px;
+                            height: 100%;
+                            border-right: 2px dashed rgb(39, 83, 74);
+                            top: 0;
+                            left: 198px;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 1px;
+                            height: 100%;
+                            border-right: 2px dashed rgb(39, 83, 74);
+                            top: 0;
+                            left: 99px;
+                        }
+                        .half-line {
+                            position: absolute;
+                            width: 1px;
+                            height: 100%;
+                            border-right: 2px dashed rgb(39, 83, 74);
+                            top: 0;
+                            left: 297px;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                &.win-stake {
+                    background: white;
+                    position: absolute;
+                    top: 250px;
+                    left: 650px;
+                    padding: 30px;
+                    border-radius: 25px;
+
+                    & > div {
+                        &:nth-of-type(2) {
+                            display: flex;
+
+                            button {
+                                min-width: 45%;
+                            }
+                        }
+                    }
+                }
+                &.win-unstake {
+                    background: white;
+                    position: absolute;
+                    top: 250px;
+                    left: 650px;
+                    padding: 30px;
+                    border-radius: 25px;
+
+                    & > div {
+                        &:nth-of-type(2) {
+                            display: flex;
+
+                            button {
+                                min-width: 45%;
+                            }
+                        }
+                    }
+                }
+                padding: 0;
+                margin: 0;
+                border: none;
+                float: left;
+                width: 400px;
+                background: transparent;
+                margin-left: 195px;
+
+                & > div {
+                    width: 100%;
+
+                    .loanBtn {
+                        background: rgb(48, 222, 171);
+                        padding: 0;
+                        height: 50px;
+                        font-size: 18px;
+
+                        border: 0;
+                        h4 {
+                            color: rgb(31, 31, 36);
+                        }
+                    }
+                    .rewardBtn {
+                        border-color: rgb(48, 222, 171);
+                        padding: 0;
+                        height: 50px;
+                        font-size: 18px;
+                        h4 {
+                            color: rgb(48, 222, 171);
+                        }
+                        &:hover {
+                            background: transparent;
+                        }
+                    }
+                    .cancleBtn {
+                        padding: 0;
+                        height: 50px;
+                        font-size: 18px;
+                        position: relative;
+                        border-color: rgb(117, 117, 116);
+                        h4 {
+                            color: rgb(117, 117, 116);
+                        }
+                        &:hover {
+                            background: transparent;
+                        }
+                    }
+
+                    &:nth-of-type(4) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    .stake-title {
+        height: 80px;
+        line-height: 78px;
+        box-sizing: border-box;
+        border-bottom: 2px solid rgb(51, 50, 63);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

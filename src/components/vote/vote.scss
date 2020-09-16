@@ -1,0 +1,119 @@
+.vote {
+    max-width: none !important;
+    min-height: 969px;
+    background: rgb(31, 31, 36);
+    .vote-content {
+        & > div {
+            &:nth-of-type(1) {
+                margin-top: 70px;
+                & > div {
+                    h3 {
+                        color: white;
+                    }
+                    &:nth-of-type(1) {
+                        padding: 5px 30px;
+                        border-color: rgb(48, 222, 171);
+                        background: rgb(31, 31, 36);
+                        color: white;
+                    }
+                    &:nth-of-type(3) {
+                        button {
+                            padding: 0;
+                            height: 40px;
+                            border-color: rgb(48, 222, 171);
+                            color: white;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(2) {
+                & > div {
+                    &:nth-of-type(1) {
+                        height: 40px;
+                        border-color: rgb(48, 222, 171);
+                        background: rgb(31, 31, 36);
+
+                        button {
+                            &:hover {
+                                background: rgba(48, 222, 171, 0.2);
+                            }
+                        }
+                        button.MuiToggleButton-root.Mui-selected {
+                            background: rgb(48, 222, 171);
+                        }
+                    }
+                    &:nth-of-type(3) {
+                        button {
+                            padding: 0;
+                            height: 40px;
+                            border-color: rgb(48, 222, 171);
+                            color: white;
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(3) {
+                h3 {
+                    color: white;
+                }
+                border-color: rgb(48, 222, 171);
+                margin: 0;
+                background: transparent;
+                background: rgb(31, 31, 36);
+            }
+        }
+        .footer{
+            header{
+                margin-top: 45px;
+                &>div{
+                    h6{
+                        display: flex;
+                        justify-content: space-around;
+                        a{
+                            padding: 0 15px;
+                            height: 45px;
+                            line-height: 41px;
+                            text-align: center;
+                            border-radius: 25px;
+                            color: white;
+                            border: 2px solid rgb(48, 222, 171);
+                            background: rgb(31, 31, 36);
+        
+                            &:hover{
+                                text-decoration: none;
+                            }
+        
+                            &:nth-of-type(1){
+                                padding: 0;
+                                width: 100px;
+                            }
+                            &:nth-of-type(4){
+                                display: none;
+                            }
+                        }
+                    }
+        
+                    &>div{
+                        button{
+                            color: white;
+                            padding: 8px 15px;
+                            height: 45px;
+                            line-height: 41px;
+                            text-align: center;
+                            border-radius: 25px;
+                            border: 2px solid rgb(48, 222, 171);
+                            background: rgb(31, 31, 36);
+                        }
+                        a{
+                            color: white;
+        
+                            &:hover{
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

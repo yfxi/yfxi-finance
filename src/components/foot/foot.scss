@@ -1,0 +1,61 @@
+.foot{
+    width: 100%;
+    .container-fluid{
+        &:first-of-type{
+            height: 250px;
+            background: rgb(28, 27, 32);
+
+            .container{
+                &>div{
+                    &:first-of-type{
+                        color: white;
+                        float: left;
+                        height: 45px;
+                        line-height: 45px;
+                        margin-top: 100px;
+                        position: relative;
+                        display: flex;
+
+                        .doc-link{
+                            margin-left: 84px;
+
+                            a{
+                                color: white;
+                                &:hover{
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+
+                        &::after{
+                            content: '';
+                            width: 1px;
+                            height: 100%;
+                            background: white;
+                            position: absolute;
+                            top: 0;
+                            left: 197px;
+                        }
+                    }
+                    &:last-of-type{
+                        float: right;
+                        margin-top: 94px;
+                        a:not(:last-of-type){
+                            img{
+                                margin-right: 29px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        &:last-of-type{
+            height: 40px;
+            line-height: 40px;
+            background: rgb(56, 56, 63);
+            color: white;
+            font-size: 14px;
+        }
+    }
+}
